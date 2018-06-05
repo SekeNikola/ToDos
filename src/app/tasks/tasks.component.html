@@ -1,0 +1,27 @@
+<h1>ToDoS</h1>
+
+<form>
+  <input type="text" name="item" placeholder="New Task" [(ngModel)]="goalText" autocomplete="off">
+  <input type="submit" class="btn" [value]="btnText" (click)="addItem()">
+</form>
+
+<p *ngFor="let goal of goals; let i = index" class=tasks @fade>
+  <label>
+    <input type="checkbox"  id="check" />
+    <span class="check"></span>
+  </label>
+    <span class="task">{{goal}}</span>
+  
+  <button class="remove" (click)="removeItem(i)">
+    <i class="fa fa-trash-o" aria-hidden="true"></i>
+  </button>
+</p>
+<p id="counter">
+  <img src="../../assets//vacation.jpg" alt="" *ngIf="itemCount===0">
+ <span *ngIf="itemCount === 1">
+  You left {{itemCount}} task
+ </span>
+ <span *ngIf="itemCount >= 2">
+  You left {{itemCount}} tasks
+ </span> 
+</p>
